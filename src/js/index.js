@@ -8,6 +8,7 @@ const loadMoreBtn = document.querySelector('button.load-more');
 
 form.addEventListener('submit', onSubmit);
 loadMoreBtn.addEventListener('click', onLoadMore);
+let queriesArray = [];
 
 function onSubmit(e) {
   e.preventDefault();
