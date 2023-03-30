@@ -8,7 +8,7 @@ const loadMoreBtn = document.querySelector('button.load-more');
 
 form.addEventListener('submit', onSubmit);
 loadMoreBtn.addEventListener('click', onLoadMore);
-let queriesArray = [];
+// let queriesArray = [];
 
 function onSubmit(e) {
   e.preventDefault();
@@ -23,7 +23,7 @@ function onSubmit(e) {
     imageApiService
       .getImage()
       .then(data => {
-        queriesArray = data.hits;
+        let queriesArray = data.hits;
         if (queriesArray.length === 0) {
           Notify.failure(
             'Sorry, there are no images matching your search query. Please try again.'
@@ -52,7 +52,7 @@ function onSubmit(e) {
 
 function onLoadMore() {
   imageApiService.getImage().then(data => {
-    queriesArray = data.hits;
+    let queriesArray = data.hits;
     renderImages(queriesArray);
     if (queriesArray.length < 40) {
       loadMoreBtn.classList.add('is-hidden');
